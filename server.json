@@ -1,0 +1,22 @@
+{
+  "categories": [
+    { "id": "camisetas", "title": "Camisetas" },
+    { "id": "calcas", "title": "Calças" },
+    { "id": "meias", "title": "Meias" },
+    { "id": "blusas", "title": "Blusas" },
+    { "id": "cuecas", "title": "Cuecas" }
+  ],
+  "products": [
+    { "id": 1, "title": "Camiseta Front-end 1234", "price": 79.9, "category_id": "camisetas", "slug": "camiseta-front-ends"},
+    { "id": 2, "title": "Camiseta CSharpolin", "price": 69.9, "category_id": "camisetas", "slug": "camiseta-csharpolin"},
+    { "id": 3, "title": "Calça preta back-end", "price": 129.9, "category_id": "calcas", "slug": "calca-preta-back-end"},
+    { "id": 4, "title": "Calça azul do React", "price": 109.9, "category_id": "calcas", "slug": "calca-azul-react"},
+    { "id": 5, "title": "Meia X", "price": 19.9, "category_id": "meias", "slug": "meia-do-next"},
+    { "id": 6, "title": "Blusa X", "price": 19.9, "category_id": "blusas", "slug": "blusa-do-next"},
+    { "id": 7, "title": "Cueca X", "price": 29.9, "category_id": "cuecas", "slug": "cueca-do-next"}
+  ],
+  "recommended": [
+    { "id": 1, "title": "Camiseta Front-end", "price": 79.9, "category_id": "camisetas", "slug": "camiseta-front-ends"},
+    { "id": 4, "title": "Calça azul do React", "price": 109.9, "category_id": "calcas", "slug": "calca-azul-react"}
+  ]
+}
