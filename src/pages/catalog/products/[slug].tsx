@@ -1,10 +1,13 @@
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
+import { MdAddShoppingCart } from 'react-icons/md';
+
 import PrismicDom from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 import { client } from '@/libs/prismic';
 
+import ProductContainer from '../../../components/ProductContainer';
 
 /* const AddToCartModal = dynamic(
   () => import('@/components/addToCartModal'),
@@ -27,15 +30,25 @@ export default function Product ({product}: ProductProps) {
     return <p>Carregando...</p>
   }
 
-return  (
-  <div>
-    <h1>{PrismicDom.RichText.asText(product.data.title)}</h1>
+  function handleAddProduct(id) {
+    alert(" Success");
+  }
 
+return  (
+  <ProductContainer>
+    <h1>{PrismicDom.RichText.asText(product.data.title)}</h1>
     <img src={product.data.thumbnail.url} width="300" alt=""/>
-    
     <div dangerouslySetInnerHTML={ { __html: PrismicDom.RichText.asHtml(product.data.description) } }></div>
     <p>Price: ${product.data.price} </p>
-  </div>
+
+    <button type="button" onClick={() => handleAddProduct(product.id)}>
+      <div>
+        <MdAddShoppingCart size={16} color="#FFF" />{' '}
+      </div>
+      <span>ADD TO CART</span>
+    </button>
+  </ProductContainer>
+
 );
 }
 
