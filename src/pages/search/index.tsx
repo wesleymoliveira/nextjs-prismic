@@ -7,6 +7,12 @@ import { FormEvent, useState } from 'react';
 import { Document } from 'prismic-javascript/types/documents';
 import { client } from '@/libs/prismic';
 
+import { ProductList, ProductTitle, ProductPrice } from '../../styles/pages/Search';
+
+import StyledInput from '../../components/Input';
+import StyledButton from '../../components/Button';
+import SearchContainer from '../../components/SearchContainer';
+
 interface SearchProps {
   searchResults: Document[];
 }
@@ -26,26 +32,31 @@ export default function  search({searchResults}: SearchProps){
 
 
   return (
-    <div>
+    <SearchContainer>
       <form onSubmit={handleSearch}>
-        <input type="text" value={search} onChange={e => setSearch(e.target.value)}/>
-        <button type="submit">Search</button>
+        <StyledInput type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder="Type here..."/>
+        <StyledButton type="submit">Search</StyledButton>
       </form>
-      <ul>
+      <ProductList>
        {searchResults.map(product => {
          return (
            <li key={product.id}>
-             <Link href={`/catalog/products/${product.uid}`}>
-               <a>
+             <img src={product.data.thumbnail.url} width="200" alt=""/>
+
+              <ProductTitle>
                  {PrismicDom.RichText.asText(product.data.title)}
-               </a>
+              </ProductTitle>
+
+             <Link href={`/catalog/products/${product.uid}`}>
+               <button>Check Details</button>
             </Link>
+            <ProductPrice>Price: ${product.data.price} </ProductPrice>
            </li>
          )
        })}
-     </ul>
+     </ProductList>
 
-    </div>
+    </SearchContainer>
   );
 }
 

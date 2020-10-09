@@ -39,9 +39,7 @@ export default function Home({ recommendedProducts }: HomeProps) {
              <Link href={`/catalog/products/${recommendedProducts.uid}`}>
                <a>
                  {PrismicDom.RichText.asText(recommendedProducts.data.title)}
-                 
                </a>
-            
             </Link>
            </li>
          )
